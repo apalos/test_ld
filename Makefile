@@ -1,12 +1,13 @@
 src = $(wildcard *.c)
 obj = $(src:.c=.o)
 LDFLAGS=-flto
+CC?=
 
 lto: test.o s.o
-	gcc test.c s.S -o test -flto
+	$(CC) test.c s.S -o test -flto -DLTO_ENABLE
 
 nolto: test.o
-	cc test.c -o test
+	$(CC) test.c -o test
 
 .PHONY: clean
 clean:
