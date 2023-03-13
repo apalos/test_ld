@@ -1,3 +1,3 @@
 lost:
     .globl lost
-    cmp x0, x1
+    cmp r0, r1
